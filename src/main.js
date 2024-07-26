@@ -35,10 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     loader.style.display = 'block';
 
     try {
-      // console.log('Fetching images...');
       const images = await fetchImages(query);
 
-      // console.log('Fetched images:', images);
       gallery.innerHTML = '';
 
       if (images.length === 0) {
