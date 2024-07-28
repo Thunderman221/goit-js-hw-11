@@ -2,6 +2,8 @@ import { fetchImages } from './js/pixabay-api';
 import { renderImages, showNoResultsMessage } from './js/render-functions';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#search-form');
@@ -44,12 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         renderImages(images);
         lightbox.refresh();
-
-        await new Promise(resolve => {
-          setTimeout(() => {
-            resolve();
-          }, 100);
-        });
       }
     } catch (error) {
       console.error('Error fetching images:', error);
